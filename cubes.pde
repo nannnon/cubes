@@ -1,6 +1,6 @@
 void setup()
 {
-  size(512, 512, P3D);
+  size(1024, 1024, P3D);
   perspective(PI / 3, float(width) / float(height), 0.1, 1000);
 }
 
@@ -12,10 +12,12 @@ float cx = cubesNum * cubesInterval / 2.0 + cubesInterval / 2;
 float cy = cubesNum * cubesInterval / 2.0 + cubesInterval / 2;
 float cz = cubesNum * cubesInterval;
 
-void draw()
+void draw()  
 {
   lights();
   directionalLight(255, 255, 255, 1, 1, -1);
+  
+  camera(cx, cy, cz, cx, cy, 0, 0, 1, 0);
   
   colorMode(RGB, 1);
   background(0);
@@ -43,6 +45,7 @@ void draw()
     }
   }
   
-  camera(cx, cy, cz, cx, cy, 0, 0, 1, 0);
   cz -= 0.3;
+  
+  //saveFrame("######.png");
 }
